@@ -1,58 +1,47 @@
+import os
 import random
-import time
 
-# printing some intro statements
-print("LET THE GAME BEGIN")
-print("ROCK")
-time.sleep(1)
-print("PAPER")
-time.sleep(1)
-print("SCISSORS")
-time.sleep(1)
-print("LIZARD")
-time.sleep(1)
-print("SPOCK")
+# --------
+# What Is Rock Paper Scissors?
+# Rock smashes scissors.
+# Paper covers rock.
+# Scissors cut paper.
+# --------
 
-# asking player one to select an option
-player_one_selection = input("Please select Rock, Paper, Scissors, Spock, Lizard?:")
-# lower casing what the user selects
-player_one_selection = player_one_selection.lower()
+os.system("clear")
 
-# the options the computer can randomly select
-options = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-player_two_selection = random.choice(options)
+print(f"Welcome to Rock Paper Scissors")
+# Take the user input - two users enters their choice
+user_name = input("What is your name?:")
+user_selection = input(f"Hi {user_name}, enter a choice (rock, paper, scissors): ")
+user_selection = user_selection.lower()  # lowercase the input
 
+choices = ["rock", "paper", "scissors"]
+computer_selection = random.choice(choices)
+print(f"The computer selected {computer_selection}")
 
-print(f"You selected {player_one_selection.capitalize()}")
-print(f"The computer selected {player_two_selection.capitalize()}")
+# do not do next part without testing the first part
 
-# rock paper scissors lizard spock logic
-if player_one_selection == player_two_selection:
-    print("The players draw!")
-elif player_one_selection == "rock":
-    if player_two_selection == "paper" or player_two_selection == "spock":
-        print("Player two wins")
-    else:
-        print("Player one wins")
-elif player_one_selection == "paper":
-    if player_two_selection == "scissors" or player_two_selection == "lizard":
-        print("Player two wins")
-    else:
-        print("Player one wins")
-elif player_one_selection == "scissors":
-    if player_two_selection == "rock" or player_two_selection == "spock":
-        print("Player two wins")
-    else:
-        print("Player one wins")
-elif player_one_selection == "lizard":
-    if player_two_selection == "scissors" or player_two_selection == "rock":
-        print("Player two wins")
-    else:
-        print("Player one wins")
-elif player_one_selection == "spock":
-    if player_two_selection == "paper" or player_two_selection == "lizard":
-        print("Player two wins")
-    else:
-        print("Player one wins")
+# if the players drawer
+if user_selection == computer_selection:
+    print("The players draw")
 else:
-    print("This does not exist")
+    if user_selection == "rock":
+        if computer_selection == "paper":
+            print("Paper covers rock - The computer wins")
+        elif computer_selection == "scissors":
+            print("Rock smashes scissors - You win")
+    elif user_selection == "paper":
+        if computer_selection == "scissors":
+            print("Scissor cuts paper - The computer wins")
+        elif computer_selection == "rock":
+            print("Paper cover rocks - You win")
+    elif user_selection == "scissors":
+        if computer_selection == "rock":
+            print("Rock smashes scissors - The computer wins")
+        elif computer_selection == "paper":
+            print("Scissor cuts paper - You win")
+    else:
+        print("Error - option does not exist")
+
+print("Thank you for playing!")
