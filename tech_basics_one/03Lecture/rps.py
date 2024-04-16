@@ -8,7 +8,8 @@ import random
 # Scissors cut paper.
 # --------
 
-os.system("clear")
+# this code clears the terminal
+os.system("clear") # windows users can replace clear with cls to clear the screen
 
 print(f"Welcome to Rock Paper Scissors")
 # Take the user input - two users enters their choice
