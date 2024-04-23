@@ -12,11 +12,12 @@ import random
 os.system("clear") # windows users can replace clear with cls to clear the screen
 
 print(f"Welcome to Rock Paper Scissors")
-# Take the user input - two users enters their choice
+# Take the user input - the user enters their choice
 user_name = input("What is your name?:")
 user_selection = input(f"Hi {user_name}, enter a choice (rock, paper, scissors): ")
 user_selection = user_selection.lower()  # lowercase the input
 
+# computer makes a random selection
 choices = ["rock", "paper", "scissors"]
 computer_selection = random.choice(choices)
 print(f"The computer selected {computer_selection}")
