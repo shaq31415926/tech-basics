@@ -19,16 +19,9 @@ horoscope_dict = {
 }
 
 # print the users star sign
-print("Your star sign is....")
-print(" ")
-print(horoscope_dict[user_sign])
-
-
-"""
 if user_sign in horoscope_dict.keys():
     print("Your star sign is....")
     print(" ")
     print(horoscope_dict[user_sign])
 else:
     print("THAT IS NOT A STAR SIGN")
-"""
