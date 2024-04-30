@@ -1,18 +1,19 @@
-import string
 import random
+import string
 
-# reference: https://geekflare.com/password-generator-python-code/
+# ask the user for length
+print("HELLO! HUMAN")
+password_length = input("How long would you like your password to be?:")
+password_length = int(password_length)
 
-# ask the user the length of password
-length = int(input("Enter password length: "))
-
-# create a variable that will contain the pool of characters
-characters = list(string.ascii_letters + string.digits + "!@#$%^&*()")
-
-# shuffle the characters
+# pool of characters
+characters = list((string.ascii_letters+string.digits+string.punctuation))
+# shuffle characters
 random.shuffle(characters)
-password = characters[0:length]
 
-password_generated = "".join(password)
+# generate password
+password = characters[0: password_length]
 
-print(f"The password generated is: {password_generated}")
+# print the password
+generated_password = "".join(password)
+print(f"Your password is {generated_password}")
