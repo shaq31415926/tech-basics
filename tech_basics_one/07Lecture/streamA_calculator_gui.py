@@ -2,7 +2,7 @@ import tkinter as tk
 
 # List of improvements to the calculator
 # TODO: On division by zero the calculator does not work
-# fixed - Does not display x or division sign (check line 291-295)
+# fixed - Does not display x or division sign (check line 291)
 # TODO: The expression can contain multiple operators
 # TODO: Keep track of the total - but you can find this is stream B code
 # TODO: add a delete button
@@ -296,6 +296,13 @@ def press_equal():
 
     total = str(eval(expression_display))
     equation.set(total)
+
+    # fix the display again
+    for char in expression_display:
+        if char == "*":
+            expression_display = expression_display.replace("*", "x")
+        if char == "/":
+            expression_display = expression_display.replace("/", "÷")
 
 
 # place a equal button
