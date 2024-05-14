@@ -1,10 +1,11 @@
 import tkinter as tk
 
 # List of improvements to the calculator
-#TODO: On division by zero the calculator does not work
-#TODO: Does not display x or division sign
-#TODO: The expression can contain multiple operators
-#TODO: Keep track of the total - but you can find this is stream B code
+# TODO: On division by zero the calculator does not work
+# fixed - Does not display x or division sign (check line 291-295)
+# TODO: The expression can contain multiple operators
+# TODO: Keep track of the total - but you can find this is stream B code
+# TODO: add a delete button
 
 # code to create the gui window
 root = tk.Tk()
@@ -240,7 +241,7 @@ divide = tk.Button(root,
                    highlightbackground="pink",
                    height=1,
                    width=7,
-                   command=lambda: press("/")
+                   command=lambda: press("÷")
                    )
 divide.grid(row=5, column=3)
 
@@ -255,7 +256,7 @@ multiply = tk.Button(root,
                      highlightbackground="pink",
                      height=1,
                      width=7,
-                     command=lambda: press("*")
+                     command=lambda: press("x")
                      )
 multiply.grid(row=4, column=3)
 
@@ -285,6 +286,13 @@ clear.grid(row=1, column=0)
 
 def press_equal():
     global expression_display
+
+    # this replaces the signs with cross and divides
+    for char in expression_display:
+        if char == "x":
+            expression_display = expression_display.replace("x", "*")
+        if char == "÷":
+            expression_display = expression_display.replace("÷", "/")
 
     total = str(eval(expression_display))
     equation.set(total)
