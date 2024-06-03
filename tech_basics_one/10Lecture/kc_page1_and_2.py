@@ -28,16 +28,33 @@ def set_background(root, image_file_path, width, height):
     label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
-# place an image on the gui
-image_file_path = "images/store.jpeg"
-set_background(root, image_file_path, width, height)
-
-
 # this definition clear everything you just created
 def clear_widgets(root):
     for i in root.winfo_children():
         i.destroy()
 
+
+def second_page(root):
+    clear_widgets(root)
+
+    # place background image
+    image_file_path = "images/pencils.jpeg"
+    set_background(root, image_file_path, width, height)
+
+    # place a label
+    welcome_label = tk.Label(root,
+                             text="WELCOME TO MY ETHICALLY SOURCED PENCIL STORE",
+                             font=('Comic Sans MS', 20, 'bold'),
+                             fg="black",
+                             # this could help with getting colour matches: https://imagecolorpicker.com/
+                             bg="#f0c101")
+
+    welcome_label.place(relx=0.5, rely=0.1, anchor="center")
+
+
+# place an image on the gui
+image_file_path = "images/store.jpeg"
+set_background(root, image_file_path, width, height)
 
 # place a button that will activate a button that will clear all the widgets
 enter_button = tk.Button(text="Click here to enter store",
@@ -45,7 +62,7 @@ enter_button = tk.Button(text="Click here to enter store",
                          font=("Lucida", 15, "bold"),
                          height=2,
                          width=20,
-                         command=lambda: clear_widgets(root))
+                         command=lambda: second_page(root))
 enter_button.place(relx=0.5, rely=0.3, anchor="center")
 
 # code to execute the code
