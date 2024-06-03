@@ -42,11 +42,11 @@ def clear_widgets(root):
 # place a button that will activate a button that will clear all the widgets
 enter_button = tk.Button(text="Click here to enter store",
                          fg="blue",
-                         font=("Times New Roman", 15, "bold"),
+                         font=("Lucida", 15, "bold"),
                          height=2,
                          width=20,
                          command=lambda: clear_widgets(root))
-enter_button.place(relx=0.5, rely=0.4, anchor="center")
+enter_button.place(relx=0.5, rely=0.3, anchor="center")
 
 # code to execute the code
 root.mainloop()
