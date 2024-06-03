@@ -28,15 +28,15 @@ def set_background(root, image_file_path, width, height):
     label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
+# place an image on the gui
+image_file_path = "images/store.jpeg"
+set_background(root, image_file_path, width, height)
+
+
 # this definition clear everything you just created
 def clear_widgets(root):
     for i in root.winfo_children():
         i.destroy()
-
-
-# place an image on the gui
-image_file_path = "images/store.jpeg"
-set_background(root, image_file_path, width, height)
 
 # place a button that will activate a button that will clear all the widgets
 enter_button = tk.Button(text="Click here to enter store",
