@@ -8,16 +8,16 @@ root.minsize(height=450, width=850)
 root.configure(background="black")
 
 # add a welcome label
-welcome_label = tk.label = tk.Label(root,
-                                    text="WELCOME PLAYER! LET THE BATTLE BEGIN",
-                                    #font="Helvetica 15 bold",
-                                    font=('Comic Sans MS', 20, 'bold'),
-                                    fg="white",
-                                    bg="black")
+welcome_label = tk.Label(root,
+                        text="WELCOME PLAYER! LET THE BATTLE BEGIN",
+                        #font="Helvetica 15 bold",
+                        font=('Comic Sans MS', 20, 'bold'),
+                        fg="white",
+                        bg="black")
 
 welcome_label.place(relx=0.5, y=20, anchor="center")
 
-selection_label = tk.label = tk.Label(root,
+selection_label = tk.Label(root,
                                     text="SELECT YOUR CHOICE - ROCK, PAPER, SCISSORS....",
                                     #font="Helvetica 15 bold",
                                     font=('Comic Sans MS', 20, 'bold'),
@@ -41,7 +41,7 @@ def press(user_selects):
     user_selection_label.place(relx=0.5, y=300, anchor="center")
 
 
-# initialise a user and computer selection variable
+# initialise an empty user selection label
 user_selection_label = tk.Label()
 
 # add some buttons
