@@ -12,9 +12,12 @@ root.title("Knowledge Check")
 # root.geometry("850x450")
 
 # option 2
-height = 450
-width = 850
-root.minsize(height=height, width=width)
+screen_height = 450
+screen_width = 850
+image_width = screen_width - 10
+image_height = screen_height - 10
+
+root.minsize(height=screen_height, width=screen_width)
 
 
 # definition to place a background image
@@ -30,7 +33,7 @@ def set_background(root, image_file_path, width, height):
 
 # place an image on the gui
 image_file_path = "images/store.jpeg"
-set_background(root, image_file_path, width, height)
+set_background(root, image_file_path, image_width, image_height)
 
 
 # this definition clear everything you just created
