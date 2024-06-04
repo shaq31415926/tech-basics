@@ -12,9 +12,12 @@ root.title("Knowledge Check")
 # root.geometry("850x450")
 
 # option 2
-height = 450
-width = 850
-root.minsize(height=height, width=width)
+screen_height = 450
+screen_width = 850
+image_width = screen_width - 10
+image_height = screen_height - 10
+
+root.minsize(height=screen_height, width=screen_width)
 
 
 # definition to place a background image
@@ -79,7 +82,7 @@ def home_page(root, width, height):
 
 
 # call the definition to create the home page
-home_page(root, width, height)
+home_page(root, image_width, image_height)
 
 # code to execute the code
 root.mainloop()
