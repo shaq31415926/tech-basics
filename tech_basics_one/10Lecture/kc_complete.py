@@ -42,7 +42,6 @@ def second_page(root, width, height):
     set_background(root, image_file_path, width, height)
 
     # place a label
-    # place a label
     welcome_label = tk.Label(root,
                              text="WELCOME TO MY ETHICALLY SOURCED PENCIL STORE",
                              font=('Comic Sans MS', 20, 'bold'),
