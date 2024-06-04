@@ -63,6 +63,7 @@ enter_button = tk.Button(text="Click here to enter store",
                          height=2,
                          width=20,
                          command=lambda: second_page(root, width, height))
+
 enter_button.place(relx=0.5, rely=0.3, anchor="center")
 
 # code to execute the code
