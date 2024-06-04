@@ -34,7 +34,7 @@ def clear_widgets(root):
         i.destroy()
 
 
-def second_page(root):
+def second_page(root, width, height):
     clear_widgets(root)
 
     # place background image
@@ -62,7 +62,7 @@ enter_button = tk.Button(text="Click here to enter store",
                          font=("Lucida", 15, "bold"),
                          height=2,
                          width=20,
-                         command=lambda: second_page(root))
+                         command=lambda: second_page(root, width, height))
 enter_button.place(relx=0.5, rely=0.3, anchor="center")
 
 # code to execute the code
