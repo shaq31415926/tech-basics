@@ -17,7 +17,6 @@ screen_width = 850
 image_width = screen_width - 10
 image_height = screen_height - 10
 
-
 root.minsize(height=screen_height, width=screen_width)
 
 
