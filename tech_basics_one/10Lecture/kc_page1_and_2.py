@@ -12,9 +12,12 @@ root.title("Knowledge Check")
 # root.geometry("850x450")
 
 # option 2
-height = 450
-width = 850
-root.minsize(height=height, width=width)
+screen_height = 450
+screen_width = 850
+image_width = screen_width - 10
+image_height = screen_height - 10
+
+root.minsize(height=screen_height, width=screen_width)
 
 
 # definition to place a background image
@@ -54,7 +57,7 @@ def second_page(root, width, height):
 
 # place an image on the gui
 image_file_path = "images/store.jpeg"
-set_background(root, image_file_path, width, height)
+set_background(root, image_file_path, image_width, image_height)
 
 # place a button that will activate a button that will clear all the widgets
 enter_button = tk.Button(text="Click here to enter store",
@@ -62,7 +65,7 @@ enter_button = tk.Button(text="Click here to enter store",
                          font=("Lucida", 15, "bold"),
                          height=2,
                          width=20,
-                         command=lambda: second_page(root, width, height))
+                         command=lambda: second_page(root, image_width, image_height))
 
 enter_button.place(relx=0.5, rely=0.3, anchor="center")
 
