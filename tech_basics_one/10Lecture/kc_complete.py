@@ -34,25 +34,7 @@ def clear_widgets(root):
         i.destroy()
 
 
-def home_page(root):
-    # if using the back button you would need to clear widgets
-    clear_widgets(root)
-
-    # place an image on the gui
-    image_file_path = "images/store.jpeg"
-    set_background(root, image_file_path, width, height)
-
-    # place a button that will activate a button that will clear all the widgets
-    enter_button = tk.Button(text="Click here to enter store",
-                             fg="blue",
-                             font=("Lucida", 15, "bold"),
-                             height=2,
-                             width=20,
-                             command=lambda: second_page(root))
-    enter_button.place(relx=0.5, rely=0.3, anchor="center")
-
-
-def second_page(root):
+def second_page(root, width, height):
     clear_widgets(root)
 
     # place background image
@@ -73,13 +55,32 @@ def second_page(root):
     # place button that goes back
     back_button = tk.Button(text="🏠",
                             font='lucida 20 bold',
-                            command=lambda: home_page(root),
+                            command=lambda: home_page(root, width, height),
                             fg="blue")
     # play around with the x and y coordinates to place your button
     back_button.place(relx=0.5, rely=0.9, anchor="center")
 
+
+def home_page(root, width, height):
+    # if using the back button you would need to clear widgets
+    clear_widgets(root)
+
+    # place an image on the gui
+    image_file_path = "images/store.jpeg"
+    set_background(root, image_file_path, width, height)
+
+    # place a button that will activate a button that will clear all the widgets
+    enter_button = tk.Button(text="Click here to enter store",
+                             fg="blue",
+                             font=("Lucida", 15, "bold"),
+                             height=2,
+                             width=20,
+                             command=lambda: second_page(root, width, height))
+    enter_button.place(relx=0.5, rely=0.3, anchor="center")
+
+
 # call the definition to create the home page
-home_page(root)
+home_page(root, width, height)
 
 # code to execute the code
 root.mainloop()
