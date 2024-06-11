@@ -76,6 +76,7 @@ def end_game(screen, disp_width, disp_height):
     pg.quit()
     quit()
 
+timer = 30
 
 while True:
     for event in pg.event.get():
@@ -110,15 +111,15 @@ while True:
     # placing the snake
     snake_head = [x, y]
     snake_coordinates.append(snake_head)
-    display_snake(screen, snake_coordinates, snake_colour, snake_size)
     # prevents the snake from placing another square each iteration
     if len(snake_coordinates) > snake_length:
         del snake_coordinates[0]
+    display_snake(screen, snake_coordinates, snake_colour, snake_size)
+
 
     # end the game when the snake eats it tail
     for coordinates in snake_coordinates[:-1]:
         if coordinates == snake_head:
-            # CAN YOU ADD SOME MUSIC WHEN IT DIES?!
             end_game(screen, disp_width, disp_height)
 
     # place the food
@@ -134,7 +135,8 @@ while True:
         # change the position of the food
         food_x = round(random.randrange(snake_size + 10, disp_width - snake_size) / 10) * 10
         food_y = round(random.randrange(snake_size + 10, disp_height - snake_size) / 10) * 10
+        timer = timer+5
 
     display_score(f"The score is: {snake_length - 1}", screen, 0, 0)
     pg.display.update()
-    clock.tick(30)
+    clock.tick(timer)
