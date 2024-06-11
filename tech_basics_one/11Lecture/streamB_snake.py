@@ -77,6 +77,13 @@ def display_score(screen, snake_length):
 
     screen.blit(text, (0, 0))
 
+def end_game(screen, disp_height, disp_width):
+    display_message(screen, disp_height, disp_width)
+    pg.display.update()
+    play_explosion_music()
+    time.sleep(3)
+    pg.quit()
+    quit()
 
 
 
@@ -103,12 +110,7 @@ while True:
     # what happens when the snake hits the "walls"
     if snake_x < 0 or snake_y < 0 or snake_x >= disp_width or snake_y >= disp_height:
         # CHALLENGE: CAN YOU ADD SOME MUSIC HERE?
-        display_message(screen, disp_height, disp_width)
-        pg.display.update()
-        play_explosion_music()
-        time.sleep(3)
-        pg.quit()
-        quit()
+        end_game(screen, disp_height, disp_width)
 
     screen.fill((0, 0, 0))  # background colour
     snake_x += change_x
@@ -117,7 +119,16 @@ while True:
     # display the snake and track the coordinates
     snake_head = [snake_x, snake_y]
     snake_coordinates.append(snake_head)
+
+    if len(snake_coordinates) > snake_length:
+        del snake_coordinates[0]
+
     display_snake(snake_coordinates)
+
+    # game over when snake head hits the tail
+    for coordinates in snake_coordinates[:-1]:
+        if snake_head == coordinates:
+            end_game(screen, disp_height, disp_width)
 
     # place your food
     apple_image = pg.image.load("images/Apple.png")
