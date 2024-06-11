@@ -23,11 +23,19 @@ pg.display.set_caption("SNAKE")
 # create our snake
 snake_length = 1  # keep track of the score and the number of squares
 snake_size = 20  # this is the size of the square
-snake = pg.Surface((snake_size, snake_size))  # define the width and height of the snake
-snake.fill((0, 0, 255))
+#snake = pg.Surface((snake_size, snake_size))  # define the width and height of the snake
+#snake.fill((0, 0, 255))
+snake_colour = (0, 0, 255)
 # snake coordinates
 snake_x = 50
 snake_y = 50
+snake_coordinates = []
+
+def display_snake(snake_coordinates):
+    for coordinates in snake_coordinates:
+        pg.draw.rect(screen, snake_colour, [coordinates[0], coordinates[1], snake_size, snake_size])
+
+
 # snake coordinates change
 change_x = 0
 change_y = 0
@@ -70,6 +78,8 @@ def display_score(screen, snake_length):
     screen.blit(text, (0, 0))
 
 
+
+
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -103,7 +113,11 @@ while True:
     screen.fill((0, 0, 0))  # background colour
     snake_x += change_x
     snake_y += change_y
-    screen.blit(snake, (snake_x, snake_y))  # place the snake on the screen
+
+    # display the snake and track the coordinates
+    snake_head = [snake_x, snake_y]
+    snake_coordinates.append(snake_head)
+    display_snake(snake_coordinates)
 
     # place your food
     apple_image = pg.image.load("images/Apple.png")
