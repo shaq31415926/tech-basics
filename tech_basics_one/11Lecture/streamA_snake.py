@@ -26,7 +26,7 @@ clock = pg.time.Clock()
 # create our snake
 snake_size = 20  # the length and width of the snake itself
 snake_length = 1  # how many squares you have
-snake_coordinates = [] # variable to keep track of the coordinates
+snake_coordinates = []  # variable to keep track of the coordinates
 snake_colour = (0, 0, 255)
 #snake = pg.Surface((snake_size, snake_size))  # define the width and height of the snake
 #snake.fill((0, 0, 255))  # defining the colour
@@ -37,9 +37,10 @@ y = 50
 x1_change = 0
 y1_change = 0
 
+
 def display_snake(screen, snake_coordinates, snake_colour, snake_size):
     for coordinates in snake_coordinates:
-        pg.draw.rect(screen, snake_colour, [coordinates[0], coordinates[1], snake_size, snake_size])
+        pg.draw.rect(screen, snake_colour, [coordinates[0], coordinates[1], snake_size, snake_size], 1)
 
 
 # create our food
@@ -68,6 +69,7 @@ def display_score(display_text, screen, x, y):
     # place the message in the center of the screen
     screen.blit(text, (x, y))
 
+
 def end_game(screen, disp_width, disp_height):
     # CAN YOU ADD SOME MUSIC WHEN IT DIES?!
     display_message("GAME OVER!!!!!!!!", screen, disp_width, disp_height)
@@ -75,6 +77,7 @@ def end_game(screen, disp_width, disp_height):
     time.sleep(4)
     pg.quit()
     quit()
+
 
 timer = 30
 
@@ -114,13 +117,12 @@ while True:
     # prevents the snake from placing another square each iteration
     if len(snake_coordinates) > snake_length:
         del snake_coordinates[0]
-    display_snake(screen, snake_coordinates, snake_colour, snake_size)
-
-
     # end the game when the snake eats it tail
     for coordinates in snake_coordinates[:-1]:
         if coordinates == snake_head:
             end_game(screen, disp_width, disp_height)
+
+    display_snake(screen, snake_coordinates, snake_colour, snake_size)
 
     # place the food
     apple_image = pg.image.load("images/Apple.png")
