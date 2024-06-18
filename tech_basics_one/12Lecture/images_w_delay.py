@@ -40,7 +40,7 @@ def add_second_image():
 
     image_file_path = "images/store.jpeg"
     image_width = round(image_width*0.9)
-    image_height = round(image_height*0.90)
+    image_height = round(image_height*0.9)
     set_background(root, image_file_path, image_width, image_height, 20, 20)
 
 
@@ -49,7 +49,7 @@ def add_third_image():
 
     image_file_path = "images/store.jpeg"
     image_width = round(image_width * 0.9)
-    image_height = round(image_height * 0.90)
+    image_height = round(image_height * 0.9)
 
     set_background(root, image_file_path, image_width, image_height, 40, 40)
 
