@@ -33,17 +33,20 @@ def set_background(root, image_file_path, width, height, x, y):
 image_file_path = "images/store.jpeg"
 set_background(root, image_file_path, image_width, image_height, 0, 0)
 
+
 # create a definition to add a second image
 # adjust information accordingly
 def add_second_image():
     global image_width, image_height
 
     image_file_path = "images/store.jpeg"
-    image_width = round(image_width*0.9)
-    image_height = round(image_height*0.9)
+    image_width = round(image_width * 0.9)
+    image_height = round(image_height * 0.9)
     set_background(root, image_file_path, image_width, image_height, 20, 20)
 
 
+# create a definition to add a second image
+# adjust information accordingly
 def add_third_image():
     global image_width, image_height
 
@@ -54,9 +57,9 @@ def add_third_image():
     set_background(root, image_file_path, image_width, image_height, 40, 40)
 
 
-root.after(2000, add_second_image) # specify the amount of time to place second image
+root.after(2000, add_second_image)  # specify the amount of time to place second image
 # the time is in milliseconds
-root.after(4000, add_third_image) # specify the amount of time to place third image
+root.after(4000, add_third_image)  # specify the amount of time to place third image
 
 # code to execute the code
 root.mainloop()
