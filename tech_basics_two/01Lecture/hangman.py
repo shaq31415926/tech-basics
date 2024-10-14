@@ -1,3 +1,4 @@
+
 # choice of hangman options
 hangman_pics = ["""
     +---+
@@ -41,3 +42,4 @@ hangman_pics = ["""
   /|\  |
   / \  |
       ==="""]
+
