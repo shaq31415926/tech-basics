@@ -10,6 +10,7 @@ os.system("clear") # windows users add cls
 print("HI WELCOME TO MY GAME ☠️")
 
 # create a request and fetch a random word from the url
+# used code from stackoverflow (lines 14 to line 18): https://stackoverflow.com/questions/18834636/random-word-generator-python
 url="https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co"
 req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 web_byte = urlopen(req).read()
