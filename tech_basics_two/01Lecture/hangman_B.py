@@ -1,5 +1,4 @@
 import os
-#import random
 from urllib.request import Request, urlopen
 import random
 
