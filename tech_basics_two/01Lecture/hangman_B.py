@@ -10,17 +10,15 @@ os.system("clear") # windows users add cls
 # welcome the user
 print("HI WELCOME TO MY GAME ☠️")
 
-# guess the word
-
-# create a request and fetch words from the url
+# create a request and fetch a random word from the url
 url="https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co"
 req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 web_byte = urlopen(req).read()
 webpage = web_byte.decode('utf-8')
 fetch_words = webpage.split("\n")
-
 # random secret word from the url
 secret_word = random.choice(fetch_words).lower()
+
 # show dashes for the word to guess
 guessed_word = list("*"*len(secret_word))
 print(" ".join(guessed_word))
