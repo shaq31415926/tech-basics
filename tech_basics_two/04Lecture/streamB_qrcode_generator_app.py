@@ -22,10 +22,11 @@ url = st.text_input("Enter the data you would like to encode")
 
 # Thanks Jannik and Finn for the colour picker
 # option 2, use a colour picker but it defaults to black
-dark_colour = st.color_picker("Pick a colour for the dark squares")
+dark_colour = st.color_picker("Pick a colour for the dark squares", "#8569a8")
 
-# thanks aneeka for suggesting we could create a button
+# thanks Aneeka for suggesting we could create a button
 button = st.button("Click here to generate")
+
 
 # definition that creates the qr code
 def generate_qrcode(url, dark_colour):
@@ -47,7 +48,7 @@ if button and url:
 
 # warning for when user clicks on button without a url
 if button and url == "":
-    st.warning("Please enter a url")
+    st.warning("Please enter the data you would like to encode")
 
 # you can play around with markdowns
 # check out the code in github

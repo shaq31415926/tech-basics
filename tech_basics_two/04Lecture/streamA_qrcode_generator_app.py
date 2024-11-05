@@ -9,6 +9,7 @@ st.set_page_config(
 )
 
 # add a banner
+# you can also add a google image link
 st.image("images/main_banner.png")
 
 # add a title
@@ -26,6 +27,7 @@ def generate_qrcode(url):
 
 
 # when a user enters something in the url
+# generate the code and place the qr code on the app
 if url:
     with st.spinner("Generate QR Code"):
         time.sleep(3)
@@ -34,7 +36,8 @@ if url:
              caption="Here is the qr code"
              )
 
-# can play around with markdowns
+# you can play around with markdowns
+# check out the code in github
 st.markdown(
     "<br><hr><center>Made with ❤️ by <a href='mailto:sarah.haq@leuphana.de?subject=QRCode Generator WebApp!&body=Please specify the issue you are facing with the app.'><strong>Sarah Haq</strong></a><br><br>Sarah is a Lecturer at Leuphana Uni and avid Pythonista.</center><hr>",
     unsafe_allow_html=True)
