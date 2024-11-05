@@ -6,10 +6,6 @@ import time
 st.set_page_config(page_title="My QR Code app",
                    page_icon="😊")
 
-# create a streamlit variable
-if 'count' not in st.session_state:
-    st.session_state.count = 0
-
 # place an image
 # you can either download an image, or include the image file path
 st.image("images/main_banner.png")
@@ -40,7 +36,6 @@ def generate_qrcode(url, dark_colour):
 
 # when the user clicks on the button and have entered a url
 if button and url:
-    st.session_state.count = 1
     # create a spinner if you want to
     with st.spinner("Generate QR Code"):
         time.sleep(3)
@@ -50,8 +45,7 @@ if button and url:
     st.image("images/qrcode_streamlit.png",
              caption="My Generate QR Code")
 
-if button and url == "" and st.session_state.count == 0:
+# warning for when user clicks on button without a url
+if button and url == "":
     st.warning("Please enter a url")
 
-if url == "" and st.session_state.count > 0:
-    st.warning("Please enter a url")
