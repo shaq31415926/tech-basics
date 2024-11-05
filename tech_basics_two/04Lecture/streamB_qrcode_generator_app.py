@@ -38,7 +38,7 @@ def generate_qrcode(url, dark_colour):
 if button and url:
     # create a spinner if you want to
     with st.spinner("Generate QR Code"):
-        time.sleep(3)
+        time.sleep(1.5)
     # generate a qr code
     generate_qrcode(url, dark_colour)
     # place the qr code
@@ -49,3 +49,8 @@ if button and url:
 if button and url == "":
     st.warning("Please enter a url")
 
+# you can play around with markdowns
+# check out the code in github
+st.markdown(
+    "<br><hr><center>Made with ❤️ by <a href='mailto:sarah.haq@leuphana.de?subject=QRCode Generator WebApp!&body=Please specify the issue you are facing with the app.'><strong>Sarah Haq</strong></a><br><br>Sarah is a Lecturer at Leuphana Uni and avid Pythonista.</center><hr>",
+    unsafe_allow_html=True)
