@@ -18,17 +18,15 @@ def get_joke():
     # Reference: I asked chat gpt for a Joke API with minimal code
     # I then formatted it slightly, as it just happened to give me two part jokes
 
-    url = "https://v2.jokeapi.dev/joke/Programming"
-    response = requests.get(url, params={"type": "twopart"})
-    joke = response.json()
-    if joke.get("type") == "twopart":
-        question = joke['setup']
-        answer = joke['delivery']
+    joke = requests.get("https://official-joke-api.appspot.com/random_joke").json()
+    question = joke['setup']
+    answer = joke['punchline']
 
     return question, answer
 
 
 if button:
+    # call the definition to get the joke
     question, answer = get_joke()
     # place a progress bar
     placeholder.progress(0, "Wait for it")
