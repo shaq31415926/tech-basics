@@ -2,7 +2,9 @@ import streamlit as st
 import requests
 import random
 
-# Replace with your Unsplash API key
+st.set_page_config(page_title="My Pet App",
+                   page_icon="💫")
+
 api_key = st.secrets['unsplash_api_key']
 
 
