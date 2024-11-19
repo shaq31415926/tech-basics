@@ -14,11 +14,13 @@ button = st.button("Click here for a joke")
 # create an empty container that activates when the button is clicked
 placeholder = st.empty()
 
+
 def get_joke():
     # Reference: I asked chat gpt for a Joke API with minimal code
     # I then formatted it slightly, as it just happened to give me two part jokes
 
-    joke = requests.get("https://official-joke-api.appspot.com/random_joke").json()
+    url = "https://official-joke-api.appspot.com/random_joke"
+    joke = requests.get(url).json()
     question = joke['setup']
     answer = joke['punchline']
 
@@ -44,4 +46,3 @@ if button:
     placeholder.audio("music/mixkit-drum-joke-accent-579.wav", autoplay=True)
     time.sleep(2)
     placeholder.empty()
-
