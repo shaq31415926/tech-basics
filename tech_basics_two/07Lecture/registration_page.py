@@ -1,6 +1,7 @@
 import streamlit as st
 from pymongo.mongo_client import MongoClient
 import datetime
+import pandas as pd
 
 @st.cache_resource
 def connect_to_mongo():
@@ -15,7 +16,8 @@ def connect_to_mongo():
     client = MongoClient(uri)
 
     return client
-
+# connect to MongoDB
+client = connect_to_mongo()
 
 # create an empty container
 placeholder = st.empty()
@@ -33,6 +35,17 @@ with placeholder.form("registration_form"):
 
 # when the user clicks on submit button, delete all the widgets
 if submit_button:
+    # define where we want to read and write this data
+    db_name = 'streamlit'
+    collection_name = 'user_registration_data'
+
+    db = client[db_name]
+    collection = db[collection_name]
+
+    # reading data about the users
+    user_data = pd.DataFrame(list(collection.find()))
+    user_names = list(user_data.username)
+
     # add some validation
     if len(password) < 1 and len(user_name) < 1:
         st.error("ENTER A USERNAME AND PASSWORD", icon="⚠️")
@@ -42,25 +55,17 @@ if submit_button:
         st.error("ENTER YOUR USERNAME", icon="⚠️")
     elif password != repeat_password:
         st.error("PASSWORDS DO NOT MATCH", icon="⚠️")
+    elif user_name in user_names:
+        st.error("USER NAME EXISTS", icon="⚠️")
     else:
-        # connect to MongoDB
-        client = connect_to_mongo()
-
-        # define where we want to write this data
-        db_name = 'streamlit'
-        collection_name = 'user_registration_data'
-
-        db = client[db_name]
-        collection = db[collection_name]
-
         # write my data to a collection
         document = {
-            "user_name": user_name,
+            "username": user_name,
             "password": password,
             "name": name,
             "age": age,
-            "pet_name": pet,
-            "created_at": datetime.dateime.now()
+            "pet": pet,
+            "created_at": datetime.datetime.now()
         }
 
         collection.insert_one(document)
