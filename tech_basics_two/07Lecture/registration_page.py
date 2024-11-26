@@ -1,6 +1,7 @@
 import streamlit as st
 from pymongo.mongo_client import MongoClient
 import datetime
+import pandas as pd
 
 @st.cache_resource
 def connect_to_mongo():
@@ -29,6 +30,22 @@ with placeholder.form("registration"):
     submit_button = st.form_submit_button("Register")
 
 if submit_button:
+    # connect to mongodb
+    client = connect_to_mongo()
+    # connect to collection
+    # define the database
+    db_name = 'streamlit'
+    # define the collection
+    collection_name = 'user_registration_data'
+
+    # connect to the collection
+    db = client[db_name]
+    collection = db[collection_name]
+
+    # read the data from the collection and identify user names
+    user_data = pd.DataFrame(list(collection.find()))
+    usernames = list(user_data.username)
+
     if len(username) < 1 and len(password) < 1:
         st.error("ENTER USERNAME AND PASSWORD", icon="⚠️")
     elif len(username) < 1:
@@ -37,19 +54,9 @@ if submit_button:
         st.error("ENTER PASSWORD", icon="⚠️")
     elif password != repeat_password:
         st.warning("PASSWORDS DONT MATCH", icon="⚠️")
+    elif username in usernames:
+        st.warning("USERNAME ALREADY EXISTS", icon="🔥")
     else:
-        # connect to mongodb
-        client = connect_to_mongo()
-        # connect to collection
-        # define the database
-        db_name = 'streamlit'
-        # define the collection
-        collection_name = 'user_registration_data'
-
-        # connect to the collection
-        db = client[db_name]
-        collection = db[collection_name]
-
         # create a document with the data we want to write to this collection
         document = {"user_name": username,
                     "password": password,
