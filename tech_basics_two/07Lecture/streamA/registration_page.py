@@ -16,6 +16,7 @@ def connect_to_mongo():
     client = MongoClient(uri)
 
     return client
+
 # connect to MongoDB
 client = connect_to_mongo()
 

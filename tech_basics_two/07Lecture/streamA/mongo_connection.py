@@ -1,6 +1,8 @@
 from pymongo.mongo_client import MongoClient
 import streamlit as st
 
+# reference: if students are having any issues
+
 # load the user and db password from the secrets.toml file
 user = st.secrets['username']
 db_password = st.secrets['password']
