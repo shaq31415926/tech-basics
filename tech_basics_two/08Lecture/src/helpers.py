@@ -1,7 +1,7 @@
 from pymongo.mongo_client import MongoClient
 import streamlit as st
 
-
+@st.cache_resource
 def connect_to_mongo():
     # load the user and db password from the secrets.toml file
     user = st.secrets['username']
