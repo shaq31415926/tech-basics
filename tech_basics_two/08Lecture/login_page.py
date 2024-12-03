@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
-from registration_page import registration_page
+from src.registration_page import registration_page
 from src.helpers import connect_to_collection
-
 
 
 # set up the page
