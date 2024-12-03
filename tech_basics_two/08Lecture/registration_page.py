@@ -49,10 +49,12 @@ def registration_page():
             # write this document to the collection
             collection.insert_one(document)
 
-            # launch the new app
+            # clear everything and set credential check flag to True
             placeholder.empty()
+            # option 2,
             st.title(f"Welcome New User")
             # place an image
             st.image(
                 "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGpubGNsZnI5cXJicjNpcXBkNGFzNWFjNW1rdHJ4ZnJmbWpkeDhicCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/NTsD5QdhUOrEyU3TGC/giphy.gif")
+
 
