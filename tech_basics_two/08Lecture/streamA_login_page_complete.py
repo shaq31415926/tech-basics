@@ -50,7 +50,7 @@ def login_page():
             registered_password = list(user_data[user_data.username == user_name].password)[0]
 
             if password == registered_password:
-                credentials_check = True
+                st.session_state.credentials_check = True
             else:
                 st.error("The username/password is not correct")
         else:
