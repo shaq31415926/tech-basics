@@ -23,6 +23,10 @@ def registration_page():
         collection_name = 'user_registration_data'
         collection = connect_to_collection(db_name, collection_name)
 
+        # write some dummy data to the collection so it does not error
+        dummy_data = {"username": "test"}
+        collection.insert_one(dummy_data)
+
         # read the data from the collection and identify user names
         user_data = pd.DataFrame(list(collection.find()))
         usernames = list(user_data.username)
