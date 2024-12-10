@@ -26,6 +26,8 @@ def generate_response(prompt):
 prompt = st.chat_input("Enter a Prompt")
 
 if prompt:
+    with st.chat_message("user"):
+        st.write(prompt)
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             response = generate_response(prompt)

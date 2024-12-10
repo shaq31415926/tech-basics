@@ -6,6 +6,7 @@ def reduce_to_single_digit(num):
         num = sum(int(digit) for digit in str(num))
     return num
 
+
 def calculate_life_path_number(dob):
     # Extract day, month, and year
     year = dob.year
