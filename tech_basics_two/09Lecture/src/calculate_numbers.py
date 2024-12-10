@@ -6,7 +6,6 @@ def reduce_to_single_digit(num):
         num = sum(int(digit) for digit in str(num))
     return num
 
-
 def calculate_life_path_number(dob):
     # Extract day, month, and year
     year = dob.year
@@ -18,6 +17,55 @@ def calculate_life_path_number(dob):
 
     # Reduce to a single digit or master number
     return reduce_to_single_digit(total_sum)
+
+
+def calculate_personality_number(full_name):
+    # Numerology chart for consonants
+    numerology_chart = {
+        'B': 2, 'C': 3, 'D': 4, 'F': 6, 'G': 7,
+        'H': 8, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5,
+        'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'V': 4,
+        'W': 6, 'X': 7, 'Y': 1, 'Z': 8
+    }
+
+    # Remove spaces and convert to uppercase
+    full_name = full_name.replace(" ", "").upper()
+
+    # Filter consonants and get their values
+    consonant_values = [
+        numerology_chart[char] for char in full_name if char in numerology_chart
+    ]
+
+    # Sum the values
+    total = sum(consonant_values)
+
+    # Reduce to single digit or master number
+    personality_number = reduce_to_single_digit(total)
+
+    return personality_number
+
+
+def calculate_soul_number(full_name):
+    # Numerology chart for vowels
+    numerology_chart = {
+        'A': 1, 'E': 5, 'I': 9, 'O': 6, 'U': 7
+    }
+
+    # Remove spaces and convert to uppercase
+    full_name = full_name.replace(" ", "").upper()
+
+    # Filter vowels and get their values
+    vowel_values = [
+        numerology_chart[char] for char in full_name if char in numerology_chart
+    ]
+
+    # Sum the values
+    total = sum(vowel_values)
+
+    soul_number = reduce_to_single_digit(total)
+
+    return soul_number
+
 
 def calculate_destiny_number(full_name):
     # The Destiny Number in numerology is derived from a person’s full name at birth.
