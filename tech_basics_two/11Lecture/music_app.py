@@ -22,6 +22,7 @@ def play_music():
     # increase the session counter every time you click the button
     st.session_state.counter += 1
 
+
 # read the data
 data = pd.read_csv("data/artist_data.csv")
 
